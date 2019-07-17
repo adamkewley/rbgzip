@@ -10,3 +10,10 @@ edition = "2018"
 clap = "2.33.0"
 memmap = "0.7.0"
 flate2 = "1.0.9"
+
+
+[profile.release]
+#debug = true
+opt-level = 3
+lto = true
+#RUSTFLAGS='-C target-cpu = "native"'
