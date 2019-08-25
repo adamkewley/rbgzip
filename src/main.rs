@@ -222,7 +222,7 @@ fn handle_input(buf: Mmap) -> Result<()> {
 }
 
 fn main() {
-    let args = App::new("bam2sam")
+    let args = App::new("bgzip")
         .version("1.0")
         .arg(Arg::with_name("decompress")
              .short("d")
