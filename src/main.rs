@@ -157,7 +157,7 @@ fn handle_input(buf: Mmap) -> Result<()> {
     let in_idx = Arc::new(AtomicUsize::new(0));
 
     // These two can heavily affect thread balancing.
-    const NUM_WORKERS: usize = 11;
+    const NUM_WORKERS: usize = 9;
     const BUF_SIZE: usize = 8 * NUM_WORKERS;
     
     let mut workers = vec![];    
@@ -222,15 +222,12 @@ fn handle_input(buf: Mmap) -> Result<()> {
 }
 
 fn main() {
-    let args = App::new("bgzip")
+    let args = App::new("rbgzip")
         .version("1.0")
         .arg(Arg::with_name("decompress")
              .short("d")
              .help("decompress input")
              .required(true))
-        .arg(Arg::with_name("force")
-             .short("f")
-             .help("force writing to terminal"))
         .arg(Arg::with_name("stdout")
              .short("c")
              .help("write on standard output, keep original files unchanged")
